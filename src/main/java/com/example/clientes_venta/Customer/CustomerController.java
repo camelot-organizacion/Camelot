@@ -6,5 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "/clientes")
 public class CustomerController {
-    
+
+    public String adminClientes(){
+        return "lista-clientes";
+    }
 }
