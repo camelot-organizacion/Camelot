@@ -1,4 +1,4 @@
-package com.example.clientes_venta.Customer;
+package com.example.clientes_venta.Usuario;
 
 public enum Gender {
     MALE,
