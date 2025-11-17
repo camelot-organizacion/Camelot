@@ -17,14 +17,5 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @RequestMapping("/admin")
-    public String adminClientes(){
-        return "lista-clientes";
-    }
-
-
-
-
-
 
 }

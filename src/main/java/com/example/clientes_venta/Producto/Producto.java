@@ -1,6 +1,7 @@
 package com.example.clientes_venta.Producto;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name="producto")
 public class Producto {
 
+    @Id
     private Integer id;
 
     private String name;
