@@ -17,6 +17,12 @@ public class SecurityConfig{
             .formLogin(httpForm ->
                     {httpForm
                         .loginPage("/login").permitAll();
-                    }).build();
+                    })
+                    .authorizeHttpRequests(registry ->{
+                        registry.requestMatchers("/req/signup").permitAll();
+                        registry.anyRequest().authenticated();
+                    })
+                    
+                    .build();
     }
 }
