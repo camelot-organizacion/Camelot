@@ -15,4 +15,9 @@ public class ContentController {
     public String signup(){
         return "registro";
     }
+
+    @GetMapping("/home")
+    public String landingPage(){
+        return "LandingPage";
+    }
 }
