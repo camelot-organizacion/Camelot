@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+openJdk-25/
+
+openJdk-25/lib
