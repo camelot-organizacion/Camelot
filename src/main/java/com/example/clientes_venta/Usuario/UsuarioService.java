@@ -23,7 +23,7 @@ public class UsuarioService implements UserDetailsService{
         if (user.isPresent()) {
             var userObj = user.get();
             return User.builder()
-                    .username(userObj.getUsername())
+                    .username(userObj.getName())
                     .password(userObj.getPassword())
                     .roles(userObj.getAuthorities().stream()
                             .map(a -> a.getAuthority())
@@ -42,5 +42,5 @@ public class UsuarioService implements UserDetailsService{
     public List<Usuario> getUsuarios(){ 
         return usuarioRepo.findAll();
     }
-    
+
 }
