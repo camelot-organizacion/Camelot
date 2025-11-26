@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.clientes_venta.Usuario.UsuarioService;
 
 @RestController
-@RequestMapping(path = "/clientes")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
+
 
     @Autowired
     public UsuarioController(UsuarioService usuarioService) {
