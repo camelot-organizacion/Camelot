@@ -1,762 +1,284 @@
-
- 
-    article.prose {
-      line-height: 1.75;
-      display: contents
-    }
-
-    article.prose a {
-      font-weight: 500;
-      text-decoration: underline
-    }
-
-    article.prose h1 {
-      margin-block: 0 1.23em;
-      font-size: 2.25em;
-      line-height: 1.11
-    }
-
-    article.prose h2 {
-      margin-block: 2em 1em;
-      font-size: 1.5em;
-      line-height: 1.34
-    }
-
-    article.prose h3 {
-      margin-block: 1.6em .6em;
-      font-size: 1.25em;
-      line-height: 1.6
-    }
-
-    article.prose h4 {
-      margin-top: 1.5em;
-      margin-bottom: .5em;
-      line-height: 1.5
-    }
-
-    article.prose img {
-      width: 100%;
-      margin-block: 2em
-    }
-
-    article.prose blockquote {
-      margin-block: 1.6em;
-      padding: .75em 1.25em
-    }
-
-    article.prose ul,
-    article.prose ol {
-      padding-inline-start: 1.5em
-    }
-
-    article.prose table {
-      table-layout: auto;
-      width: 100%;
-      margin: 1.5em 0
-    }
-
-    article.prose thead th {
-      vertical-align: bottom;
-      font-weight: 600
-    }
-
-    article.prose tbody td {
-      vertical-align: baseline
-    }
-
-    article.prose tfoot td {
-      vertical-align: top
-    }
-
-    article.prose th,
-    article.prose td {
-      text-align: start;
-      padding: .75em
-    }
-
-    article.prose thead th:first-child,
-    article.prose tbody td:first-child,
-    article.prose tfoot td:first-child {
-      padding-inline-start: 0
-    }
-
-    article.prose thead th:last-child,
-    article.prose tbody td:last-child,
-    article.prose tfoot td:last-child {
-      padding-inline-end: 0
-    }
-
-    article.prose thead {
-      box-shadow: 0 1px #ffffffbf, 0 1px
-    }
-
-    article.prose tbody tr {
-      box-shadow: 0 1px #ffffffd9, 0 1px
-    }
-
-    article.prose hr {
-      opacity: .3;
-      margin: 3em 0
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: italic;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcC53FwrK3iLTcvneQg7B5iqpJlhKnPCkaL0UUMJng.woff2)format("woff2");
-      unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: italic;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcC53FwrK3iLTcvneQg7B5iqpJlhKnPCkaL9UUMJng.woff2)format("woff2");
-      unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: italic;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcC53FwrK3iLTcvneQg7B5iqpJlhKnPCkaL1UUMJng.woff2)format("woff2");
-      unicode-range: U+1F??
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: italic;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcC53FwrK3iLTcvneQg7B5iqpJlhKnPCkaL6UUMJng.woff2)format("woff2");
-      unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: italic;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcC53FwrK3iLTcvneQg7B5iqpJlhKnPCkaL2UUMJng.woff2)format("woff2");
-      unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: italic;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcC53FwrK3iLTcvneQg7B5iqpJlhKnPCkaL3UUMJng.woff2)format("woff2");
-      unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: italic;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcC53FwrK3iLTcvneQg7B5iqpJlhKnPCkaL5UUM.woff2)format("woff2");
-      unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcvvYwYL8g.woff2)format("woff2");
-      unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcvmYwYL8g.woff2)format("woff2");
-      unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcvuYwYL8g.woff2)format("woff2");
-      unicode-range: U+1F??
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcvhYwYL8g.woff2)format("woff2");
-      unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcvtYwYL8g.woff2)format("woff2");
-      unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcvsYwYL8g.woff2)format("woff2");
-      unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF
-    }
-
-    @font-face {
-      font-family: Inter;
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcviYwY.woff2)format("woff2");
-      unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-    }
-
-    *,
-    :before,
-    :after {
-      box-sizing: border-box
-    }
-
-    body {
-      -webkit-font-smoothing: antialiased
-    }
-
-    textarea:focus-visible {
-      outline: none
-    }
-
-    button {
-      -webkit-font-smoothing: inherit;
-      -moz-osx-font-smoothing: inherit;
-      -webkit-appearance: none
-    }
-
-    * {
-      margin: 0;
-      padding: 0
-    }
-
-    a {
-      color: inherit;
-      -webkit-text-decoration: inherit;
-      text-decoration: inherit
-    }
-
-    input {
-      font: inherit;
-      background-color: inherit;
-      border: none;
-      outline: none
-    }
-
-    button {
-      font: inherit;
-      color: inherit;
-      background: 0 0;
-      border-style: none;
-      width: auto;
-      line-height: normal;
-      overflow: visible
-    }
-
-    textarea,
-    select {
-      font: inherit;
-      background-color: inherit
-    }
-
-    img,
-    picture,
-    video,
-    canvas,
-    svg {
-      display: block
-    }
-
-    [data-reaction-click] {
-      cursor: pointer
-    }
-
-    [data-visible=false] {
-      display: none !important
-    }
-
-    .before-hidden:before,
-    .after-hidden:after {
-      display: none
-    }
-
-    .before-visible:before,
-    .after-visible:after {
-      content: ""
-    }
-
-    ::placeholder {
-      color: inherit;
-      opacity: .54
-    }
-
-    body * {
-      scrollbar-width: none
-    }
-
-    body ::-webkit-scrollbar {
-      display: none
-    }
-
-    [name=honey-pot-field] {
-      display: none !important
-    }
-
-    .text {
-      white-space: pre-wrap;
-      overflow-wrap: break-word
-    }
-
-    .pointer-events-none {
-      pointer-events: none
-    }
-  
-    /*#_ {
+/*#_ {
       background-color: #fff;
       min-height: 100vh;
       display: grid
     }*/
 
-    #Iniciar_Sesion {
-      background-color: #fff;
-      border-radius: 0;
-      width: 100%;
-      height: 85%;
-      top:11.4% ;
-      margin: 0 auto;
-      position: absolute;
-      overflow: hidden
-    }
-
-    #Body {
-      --f2w-order: 0;
-      border-radius: 0;
-      flex-flow: column;
-      justify-content: flex-start;
-      align-items: start;
-      row-gap: 0;
-      width: 100%;
-      height: auto;
-      padding: 0;
-      display: flex;
-      position: absolute;
-      top: 0;
-      left: 0
-    }
-
-    header{
-      flex-flow: row;
-
-      grid-column-gap: 0px;
-      --f2w-order: ;
-      background-color: #fff;
-      /*border: 0 solid #e2e8f0;*/
-      
-      border-bottom-width: 1px;
-
-      flex-shrink: 0;
-      
-      justify-content:space-between;
-      align-items: center;
-      
-      width: 100%;
-      margin: 0;
-      padding: .4% 0% .4%;
-      
-      display: flex;
-      position: relative;
-
-      box-shadow: 0 1px 30px #1018281a, 0 1px 2px #1018280f
-
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
 
+  html,body{
+    height: 100%;
+    margin: 0;
+  }
 
-
-    #Icons {
-      grid-column-gap: 24px;
-      --f2w-order: 0;
-      border-radius: 0;
-      flex-flow: row;
-      flex-shrink: 0;
-      justify-content: flex-start;
-      align-items: center;
-      margin: 0 auto 0 0;
-      padding: 0;
-      display: flex;
-      position: relative
-    }
-
-    #Icon_inbox {
-      --f2w-order: 0;
-      border-radius: 0;
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
-      margin: 0;
-      position: relative;
-      overflow: hidden
-    }
-
-    #Icon_arrows_expand,
-    #Icon_question_mark_circle {
-      --f2w-order: 1;
-      border-radius: 0;
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
-      margin: 0;
-      position: relative;
-      overflow: hidden
-    }
-
-    #Icon {
-      --f2w-order: 0;
-      width: 81.3%;
-      height: 81.3%;
-      position: absolute;
-      inset: 9.4%
-    }
-
-    #Camelot_Logo {
-      grid-column-gap: 8px;
-      --f2w-order: 1;
-      border-radius: 0;
-      flex-flow: row;
-      flex-shrink: 0;
-      justify-content: flex-start;
-      align-items: center;
-      width: 10%;
-      height: 68px;
-      margin: 0;
-      padding: 12px 0 12px 24px;
-      display: flex;
-      position: relative
-    }
-
-    #Union {
-      --f2w-order: 0;
-      flex-shrink: 0;
-      width: 25px;
-      height: 30px;
-      margin: 0;
-      position: relative
-    }
-
-    #_558_1318 {
-      text-align: left;
-      letter-spacing: -1px;
-      color: #080325;
-      --f2w-order: 1;
-      -webkit-background-clip: text;
-      background-clip: text;
-      flex-shrink: 0;
-      width: max-content;
-      margin: 0;
-      font-family: Inter;
-      font-size: 24px;
-      font-style: italic;
-      font-weight: 400;
-      display: inline;
-      position: relative
-    }
-
-    #__0 {
-      letter-spacing: -1px;
-      color: #080325;
-      -webkit-background-clip: text;
-      background-clip: text;
-      font-family: Inter;
-      font-size: 24px;
-      font-style: italic;
-      font-weight: 400
-    }
-
-    #Content {
-      --f2w-order: 2;
-      border-radius: 0;
-      flex-flow: column;
-      flex-shrink: 0;
-      justify-content: flex-start;
-      align-items: center;
-      row-gap: 24px;
-      margin: 0;
-      padding: 0 48px;
-      display: flex;
-      position: relative
-    }
-
-    #Title {
-      text-align: left;
-      letter-spacing: -2.4px;
-      color: #000;
-      --f2w-order: 3;
-      -webkit-background-clip: text;
-      background-clip: text;
-      width: max-content;
-      font-family: Inter;
-      font-size: 60px;
-      font-weight: 700;
-      display: inline;
-      position: absolute;
-      top:10%;
-      left: 35%
-    }
-
-    #__1 {
-      letter-spacing: -2.4px;
-      color: #000;
-      -webkit-background-clip: text;
-      background-clip: text;
-      font-family: Inter;
-      font-size: 60px;
-      font-weight: 700
-    }
-
-    #SubTitle{
-      text-align: left;
-      letter-spacing: -.8px;
-      color: #000;
-      --f2w-order: 4;
-      -webkit-background-clip: text;
-      background-clip: text;
-      width: max-content;
-      font-family: Inter;
-      font-size: 20px;
-      font-weight: 400;
-      display: inline;
-      position: absolute;
-      top: 20%;
-      left: 39%;
-    }
-
-    #__2 {
-      letter-spacing: -.8px;
-      color: #000;
-      -webkit-background-clip: text;
-      background-clip: text;
-      font-family: Inter;
-      font-size: 20px;
-      font-weight: 400
-    }
-
-    #Crear_Cuenta {
-      text-align: left;
-      letter-spacing: -.7px;
-      color: #000;
-      --f2w-order: 5;
-      -webkit-background-clip: text;
-      background-clip: text;
-      width: max-content;
-      font-family: Inter;
-      font-size: 18px;
-      font-weight: 600;
-      display: inline;
-      position: absolute;
-      top: 65%;
-      left: 39%
-    }
-
-    #__4 {
-      letter-spacing: -.7px;
-      color: #000;
-      -webkit-background-clip: text;
-      background-clip: text;
-      font-family: Inter;
-      font-size: 18px;
-      font-weight: 600
-    }
-
-    #__5 {
-      letter-spacing: -.7px;
-      color: #000;
-      -webkit-background-clip: text;
-      background-clip: text;
-      font-family: Inter;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: underline
-    }
-
-    #Table_Header {
-      grid-column-gap: 4px;
-      --f2w-order: 1;
-      background-color: #f8fafc;
-      border-radius: 25px;
-      flex-flow: row;
-      justify-content: flex-start;
-      align-items: start;
-      width: 30%;
-      padding: 16px;
-      display: flex;
-      position: absolute;
-      top: 30%;
-      left: 32%
-    }
-
-    #I571_845_9_31 {
-      text-align: left;
-      letter-spacing: -.2px;
-      color: #79808a;
-      --f2w-order: 0;
-      -webkit-background-clip: text;
-      background-clip: text;
-      flex-grow: 1;
-      flex-basis: 0;
-      width: 100%;
-      margin: 0;
-      font-family: Inter;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 24px;
-      display: inline;
-      position: relative
-    }
-
-    #__6 {
-      letter-spacing: -.2px;
-      color: #79808a;
-      -webkit-background-clip: text;
-      background-clip: text;
-      font-family: Inter;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 24px
-    }
-
-    #Table_Header_0 {
-      grid-column-gap: 4px;
-      --f2w-order: 2;
-      background-color: #f8fafc;
-      border-radius: 25px;
-      flex-flow: row;
-      justify-content: flex-start;
-      align-items: start;
-      width: 30%;
-      padding: 16px;
-      display: flex;
-      position: absolute;
-      top: 40%;
-      left: 32%
-      
-    }
-
-    #I571_850_9_31 {
-      text-align: left;
-      letter-spacing: -.2px;
-      color: #79808a;
-      --f2w-order: 0;
-      -webkit-background-clip: text;
-      background-clip: text;
-      flex-grow: 1;
-      flex-basis: 0;
-      width: 100%;
-      margin: 0;
-      font-family: Inter;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 24px;
-      display: inline;
-      position: relative
-    }
-
-    #__7 {
-      letter-spacing: -.2px;
-      color: #79808a;
-      -webkit-background-clip: text;
-      background-clip: text;
-      font-family: Inter;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 24px
-    }
-
-    #Button {
-      grid-column-gap: 8px;
-      --f2w-order: 3;
-      filter: drop-shadow(0 1px 2px #1018280d);
-      background-color: #4f46e5;
-      border-radius: 1000px;
-      flex-flow: row;
-      justify-content:space-around;
-      align-items: center;
-      width: 220px;
-      padding: 12px 0 12px 12px;
-      display: flex;
-      position: absolute;
-      top: 55%;
-      left: 41%;
-    }
-
-    #Icon_plus {
-      --f2w-order: 0;
-      border-radius: 0;
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      margin: 0;
-      position: relative;
-      overflow: hidden
-    }
-
+  body{
+    display: flex;
+    flex-direction: column;
+  }
     
+  header{
+    margin-top:.5% ;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items:center;
+    border-radius: 25px;
+    background-color: #fff;
+    justify-content: space-between;
+    padding: .4em 1em;
+    
+    box-shadow: 2px 0px 40px 4px #b4b4b4
+;
+  }
 
-    #__8 {
-      letter-spacing: -.4px;
-      color: #fff;
-      -webkit-background-clip: text;
-      background-clip: text;
-      text-align: center;
-      font-family: Inter;
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 24px
-    }
+  #Icon_question_mark_circle {
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+  }
 
-    /* Esto hace que los inputs llenen el 'div' que los contiene */
-    #Table_Header input,
-    #Table_Header_0 input {
-      width: 100%;
-      height: 100%;
-      border: none;
-      outline: none;
-      background-color: transparent;
-      padding: 0 16px;
-      /* Añadimos padding para el texto */
+  #Icon {
+    width: 81.3%;
+    height: 81.3%;
+  }
 
-      /* Replicamos el estilo del texto original */
-      font-family: Inter, sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 24px;
-      color: #333;
-      /* Color para el texto que se escribe */
-    }
+  #Camelot_Logo {
+    border-radius: 0;
+    display: flex;
+    flex-flow: row;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    align-items: center;
+    width: 10%;
+    height: 68px;
+    padding: 12px 0 12px 24px;
+    
+  }
 
-    /* Para que el texto del 'placeholder' se parezca al diseño */
-    ::placeholder {
-      color: #79808a;
-      font-weight: 600;
-      opacity: 1;
-      /* Firefox */
-    }
+  #Union {
+    flex-shrink: 0;
+    width: 25px;
+    height: 30px;
+    margin: 0;
+    position: relative
+  }
+
+  #Camelot_Text {
+    text-align: left;
+    letter-spacing: -1px;
+    color: #080325;
+    -webkit-background-clip: text;
+    background-clip: text;
+    flex-shrink: 0;
+    width: max-content;
+    margin: 0;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400;
+    display: inline;
+    position: relative
+  }
+
+  #__0 {
+    letter-spacing: -1px;
+    color: #080325;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400
+  }
+
+  main{
+    flex: 1;
+    display: flex;
+    align-items:inherit;
+    justify-content: center;
+    margin-top: 3%;
+    background-color: #fff;
+  }
+
+
+  #Iniciar_Sesion {
+    display: flex;
+    align-items: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 1250px;
+    border-radius: 0;
+    gap: 5em;
+  }
+
+  #Log-in-Header{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-between;
+    align-items : center;
+    
+    gap: 10%;
+}
+
+
+  #Title {
+    display: inline;
+    text-align: left;
+    letter-spacing: -2.4px;
+    color: #000;
+    -webkit-background-clip: text;
+    background-clip: text;
+    width: max-content;
+    font-family: Inter;
+    font-size: 60px;
+    font-weight: 700;
+  }
+
+  #styleTitle {
+    letter-spacing: -2.4px;
+    color: #000;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inter;
+    font-size: 60px;
+    font-weight: 700
+  }
+
+  #SubTitle{
+    text-align: left;
+    letter-spacing: -.8px;
+    color: #000;
+    -webkit-background-clip: text;
+    background-clip: text;
+    width: max-content;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    display: inline;
+  }
+
+   #styleSubtitle {
+    letter-spacing: -.8px;
+    color: #000;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400
+  }
+
+
+
+
+  #login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    align-items : center;
+
+    gap: 2em;
+    
+  }
+
+
+  .input_login{
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+
+    background-color: #f8fafc;
+    border-radius: 25px;
+    
+    width: 100%;
+    border: none;
+    outline: none;
+
+    padding: 15px 18px ;
+
+
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 600; 
+    
+    color: #333;
+    
+  }
+
+  #Button {
+    grid-column-gap: 8px;
+    filter: drop-shadow(0 1px 2px #1018280d);
+    background-color: #4f46e5;
+    border-radius: 1000px;
+    flex-flow: row;
+    justify-content:center;
+    align-items: center;
+    width: 220px;
+    padding: 12px 0 12px 1px;
+    display: flex;
+  
+  }
+
+  #Button_text {
+    letter-spacing: -.4px;
+    align-items: center;
+    color: #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px
+  }
+
+#SinCuenta {
+  letter-spacing: -.7px;
+  color: #000;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 600
+}
+
+  #Registrate {
+    letter-spacing: -.7px;
+    color: #000;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: underline
+  }
+
+#Crear_Cuenta {
+  text-align: left;
+  letter-spacing: -.7px;
+  color: #000;
+  --f2w-order: 5;
+  -webkit-background-clip: text;
+  background-clip: text;
+  width: max-content;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline;
+}
+
+
+::placeholder {
+  color: #79808a;
+  font-weight: 600;
+  opacity: 1;
+}

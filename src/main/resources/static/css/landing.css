@@ -54,6 +54,8 @@ body ::-webkit-scrollbar {
     display: none;
 }
 
+
+
 /* ==================== Layout Principal ==================== */
 .app-container {
     display: flex;
@@ -80,42 +82,52 @@ body ::-webkit-scrollbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0 24px 10px; /* Ajuste de padding izquierdo */
+    padding: 24px 0 24px 0px; /* Ajuste de padding izquierdo */
     margin-bottom: 25px; /* Espacio debajo del header */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
     height: 90px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
+#Camelot_Logo {
+   border-radius: 0;
+   display: flex;
+   flex-flow: row;
+   flex-shrink: 0;
+   justify-content: flex-start;
+   align-items: center;
+   width: 10%;
+   height: 68px;
+   gap: .5em;
+   padding: 12px 0 12px 24px;
+   
+ }
+
+ #Union {
+   flex-shrink: 0;
+   width: 25px;
+   height: 30px;
+   margin: 0;
+   position: relative
+ }
+
+ 
+ #Camelot_Text {
+     text-align: left;
+     letter-spacing: -1px;
+     color: #fcfcfd;
+     -webkit-background-clip: text;
+    background-clip: text;
+    flex-shrink: 0;
+    width: max-content;
+    margin: 0;
+    font-family: Inter;
     font-size: 24px;
-    font-weight: 400;
     font-style: italic;
-    letter-spacing: -1px;
-    color: #fff; /* El texto del logo es blanco */
+    font-weight: 400;
+    display: inline;
+    position: relative
 }
 
-.logo-icon-placeholder {
-    width: 25px;
-    height: 30px;
-    background-color: white; /* Color de fondo del icono pequeño */
-    border-radius: 5px; /* Forma más ovalada/rectángulo redondeado */
-    margin-right: 8px;
-    position: relative;
-}
-.logo-icon-placeholder::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 15px; /* Tamaño del icono "interno" si fuera un SVG */
-    height: 18px;
-    background-color: #4f46e5; /* Color del icono "interno" */
-    border-radius: 3px;
-    /* Esto es una simulación. Lo ideal sería un SVG real. */
-}
 
 .menu-toggle {
     background-color: #4f46e5; /* Azul/púrpura */
@@ -289,8 +301,18 @@ body ::-webkit-scrollbar {
     gap: 10px; /* Espacio entre icono grande y texto */
 }
 
+
+#Union_Center {
+    flex-shrink: 0;
+    width: 100px;
+    height: 110px;
+    margin: 0;
+    position: relative
+
+}
+
 .main-logo-icon-placeholder {
-    width: 60px; /* Tamaño del icono grande */
+    width: 60   px; /* Tamaño del icono grande */
     height: 70px;
     background-color: #4f46e5; /* Color del icono */
     border-radius: 10px; /* Para darle una forma "suave" */
@@ -298,30 +320,11 @@ body ::-webkit-scrollbar {
     /* Si fuera un SVG real, se incrustaría aquí */
 }
 /* Simulación de la forma del icono grande si no tienes un SVG */
-.main-logo-icon-placeholder::before,
-.main-logo-icon-placeholder::after {
-    content: '';
-    position: absolute;
-    border: 3px solid white; /* Simula los bordes entrelazados */
-    border-radius: 50%;
-}
-.main-logo-icon-placeholder::before {
-    width: 30px;
-    height: 30px;
-    top: 15px;
-    left: 10px;
-}
-.main-logo-icon-placeholder::after {
-    width: 30px;
-    height: 30px;
-    bottom: 15px;
-    right: 10px;
-}
 
 
 .main-logo-text {
     color: #080325;
-    font-size: 70px; /* Tamaño del texto grande del logo */
+    font-size: 90px; /* Tamaño del texto grande del logo */
     font-weight: 400;
     font-style: italic;
     letter-spacing: -2.5px;

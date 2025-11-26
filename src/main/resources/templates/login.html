@@ -9,7 +9,6 @@
   <meta property="og:url" content="index.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Iniciar Sesion">
-  <meta property="og:description" content="Created with figma.to.website">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -25,7 +24,6 @@
   <meta name="viewport" content="width=device-width">
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-  <link rel="stylesheet" th:href="@{/css/styles.css}">
   <link rel="stylesheet" th:href="@{/css/login.css}">
 
   <script th:src="@{/js/signup.js}"></script>
@@ -44,7 +42,7 @@
       <span id="_558_1318" class="pointer-events-none"><span id="__0" class="text">Camelot</span></span>
     </div>
 
-    <a href="google.com">
+    <a href="\login">
       <div id="Icon_question_mark_circle">
       <svg preserveAspectRatio="none" id="Icon" class="pointer-events-none" width="26" height="26"
         viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,49 +59,41 @@
   <main>
     <section id="Iniciar_Sesion">
 
-      <section id = 'Log-in-Titulo'>
+      <section id = 'Log-in-Header'>
         
-          <span id="Title" class="pointer-events-none"><span id="__1" class="text">Iniciar Sesión</span></span>
-          <span id="SubTitle" class="pointer-events-none"><span id="__2" class="text">Accede a tus puntos de venta</span></span>
-          
-          <!--Seccion de textos, superiores e inferiores-->
-          <span id="Crear_Cuenta">
-            <span id="__3">
-              <span id="__4" class="text">Aún no tienes cuenta? </span>
-                <a href="/req/signup" style="text-decoration: underline; color: #000;">
-              <span id="__5" class="text">Registrarme</span>
-            </a>
-        
-          </span>
-        </span>
-        
+        <span id="Title" class="pointer-events-none"><span id="__1" class="text">Iniciar Sesión</span></span>
+        <span id="SubTitle" class="pointer-events-none"><span id="__2" class="text">Accede a tus puntos de venta</span></span>
+            
       </section>
     
-      <section id="login-content">
+      
         
         <form action="/login" method="post" id="login-form">
-          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
-        <div id="Table_Header">
-          <input type="email" id="email" name="username" placeholder="Correo electrónico" required>
-        </div>
-        
-        <div id="Table_Header_0">
-          <input type="password" id="password" name="password" placeholder="Contraseña" required>
-        </div>
+          <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            
+          <input class="input_login" type="email" id="email" name="username" placeholder="Correo electrónico" required>
+
+          <input class="input_login" type="password" id="password" name="password" placeholder="Contraseña" required>
           
-        <button id="Button" type="submit">
-            <span id="__8" class="text">Iniciar Sesión</span>
-        </button>
+          <button id="Button" type="submit">
+              <span id="Button_text" class="text">Iniciar Sesión</span>
+          </button>
+
         </form>
 
+
+
+      <section id="Crear_Cuenta">
+        <span id="SinCuenta" class="text">Aún no tienes cuenta? </span>
+        <a href="/req/signup" > <span id="Registrate" class="text">Registrarme</span> </a>
       </section>
 
 
     </section>
   </main>
 
-
+  
 </body>
 
 </html>
