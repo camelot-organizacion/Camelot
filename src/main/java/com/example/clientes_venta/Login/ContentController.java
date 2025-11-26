@@ -18,6 +18,6 @@ public class ContentController {
 
     @GetMapping("/home")
     public String landingPage(){
-        return "LandingPage";
+        return "landing";
     }
 }
