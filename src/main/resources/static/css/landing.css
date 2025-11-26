@@ -286,7 +286,7 @@ body ::-webkit-scrollbar {
 /* Área del Logo Central */
 .center-logo-area {
     position: absolute; /* Posicionamiento absoluto para centrar */
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); /* Centrado perfecto */
     display: flex;
