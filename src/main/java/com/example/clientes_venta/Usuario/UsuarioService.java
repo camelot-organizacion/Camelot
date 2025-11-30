@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class UsuarioService implements UserDetailsService{
@@ -16,6 +17,7 @@ public class UsuarioService implements UserDetailsService{
     private final UsuarioRepo usuarioRepo;
     
     @Override
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
 
         Optional<Usuario> user = usuarioRepo.findByEmail(email);
@@ -23,7 +25,7 @@ public class UsuarioService implements UserDetailsService{
         if (user.isPresent()) {
             var userObj = user.get();
             return User.builder()
-                    .username(userObj.getName())
+                    .username(userObj.getEmail())
                     .password(userObj.getPassword())
                     .roles(userObj.getAuthorities().stream()
                             .map(a -> a.getAuthority())

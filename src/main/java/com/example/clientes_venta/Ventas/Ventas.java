@@ -21,4 +21,6 @@ public class Ventas {
     private Integer cantidad;
 
     private String fecha;
+
+    private Estado estado;
 }

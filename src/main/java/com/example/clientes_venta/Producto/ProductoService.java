@@ -11,26 +11,26 @@ import org.springframework.stereotype.Component;
 public class ProductoService {
 
 
-private final ProductoRepo productoRepo;
+    private final ProductoRepo productoRepo;
 
-@Autowired
-public ProductoService(ProductoRepo productoRepo){
-    this.productoRepo=productoRepo;
-}
+    @Autowired
+    public ProductoService(ProductoRepo productoRepo){
+        this.productoRepo=productoRepo;
+    }
 
 
-public List<Producto> getProductos(){
-    return productoRepo.findAll();
-}
+    public List<Producto> getProductos(){
+        return productoRepo.findAll();
+    }
 
-public List<Producto> getProductoCategoria(String categoria){
-    return productoRepo.findAll().stream().filter(producto -> categoria.equals(producto.getCategoria()))
-    .collect(Collectors.toList());
-}
+    public List<Producto> getProductoCategoria(String categoria){
+        return productoRepo.findAll().stream().filter(producto -> categoria.equals(producto.getCategoria()))
+        .collect(Collectors.toList());
+    }
 
-public List<Producto> getProductoNombre(String name){
-    return productoRepo.findAll().stream().filter(producto -> name.equals(producto.getName()))
-    .collect(Collectors.toList());
-}
+    public List<Producto> getProductoNombre(String name){
+        return productoRepo.findAll().stream().filter(producto -> name.equals(producto.getName()))
+        .collect(Collectors.toList());
+    }
 
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camelot - Réplica Perfecta</title>
+    <title>Camelot</title>
     <link rel="stylesheet" th:href="@{/css/landing.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -46,8 +46,8 @@
                     <span class="nav-text">Configuración</span>
                 </a>
                 <div class="profile-item">
-                    <div class="profile-avatar">DH</div>
-                    <span class="profile-name">Diego Hernandez</span>
+                    <div class="profile-avatar" th:text="${nombre} != null ? ${nombre.substring(0, 2)} : 'US'"></div>
+                    <span class="profile-name" th:text="${nombre} ?: 'Usuario'"></span>
                 </div>
             </div>
         </aside>
@@ -66,15 +66,27 @@
 
             <section class="welcome-section">
                 <h1>Tabla con ultimas compras </h1>
-
-                <div class="center-logo-area">
-                    <div class="main-logo-container">
-                        <span class="main-logo-icon-placeholder"></span>
-                        <span class="main-logo-text">Camelot</span>
-                    </div>
-                    <p class="main-description">Seleccione alguna opción para comenzar</p>
-                </div>
             </section>
+
+            <div class="compras-container">
+                <div class="buscador">
+                    <input type="text" id="buscar" placeholder="Buscar">
+                    <button onclick="buscar()"></button>
+                </div>
+
+                <div class="compras-grid">
+                    <div th:each="compra : ${compras}" class="compra-card">
+
+                        <h3 th:text="${compra.id}">ID Compra</h3>
+                        <p th:text="'Cantidad: ' + ${compra.cantidad}">Cantidad</p>
+                        <p th:text="'Fecha: ' + ${compra.fecha}">Fecha</p>
+                        <button id="Button" type="submit">
+                            <span id="Button_text" class="text">Agregar al carrito</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </main>
     </div>
 </body>

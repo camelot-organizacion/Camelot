@@ -18,7 +18,7 @@ public class Producto {
 
     @Id
     private Integer id;
-
+    
     private String name;
 
     private Float precio;

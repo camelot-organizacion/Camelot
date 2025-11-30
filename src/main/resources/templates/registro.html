@@ -82,22 +82,22 @@
 
     <form action="/req/signup" id="register-form" method="post">
       <div id="Table_Header">
-        <input type="nombre" id="nombre" placeholder="Nombre" required>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
       </div>
       <div id="Table_Header_0">
-        <input type="apellido" id="apellidos" placeholder="Apellidos" required>
+        <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
       </div>
       <div id="Table_Header_1">
-        <input type="correo" id="email" placeholder="Correo electrónico" required>
+        <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
       </div>
       <div id="Table_Header_2">
-        <input type="contraseña" id="contraseña" placeholder="Contraseña" required>
+        <input type="password" id="contraseña" name="password" placeholder="Contraseña" required>
       </div>
       <div id="Table_Header_3">
-        <input type="contraseña" name="confirmar-contraseña" id="confirmar-con" placeholder="Repite la contraseña" required>
+        <input type="password" name="confirmar-contraseña" id="confirmar-con" placeholder="Repite la contraseña" required>
       </div>
 
-      <button id="submit" type="submit">
+      <button id="submit1" type="submit">
           <span id="__8" class="text">Registrarme</span>
       </button>
     </form>
@@ -105,7 +105,7 @@
 
 
 
-    <span id="_571_899">
+    <span id="_571_899_">
       <span id="__9">
         <span id="__10" class="text">Ya tienes cuenta? </span>
 
@@ -119,7 +119,7 @@
 
 
   <script>
-    const submitButton = document.getElementById("submit");
+    const submitButton = document.getElementById("submit1");
     submitButton.addEventListener('click',(e)=>{
       e.preventDefault();
       const name = document.getElementById('nombre').value;

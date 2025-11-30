@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camelot - Réplica Perfecta</title>
+    <title>Camelot</title>
     <link rel="stylesheet" th:href="@{/css/landing.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="app-container">
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <span class="logo-icon-placeholder"></span> 
+                    <span class="logo-icon-placeholder"></span>
                     <span class="logo-text">Camelot</span>
                 </div>
                 <button class="menu-toggle">
@@ -20,7 +22,7 @@
                 </button>
             </div>
 
-           <nav class="main-nav">
+            <nav class="main-nav">
                 <a href="/productos" class="nav-link">
                     <i class="fas fa-box"></i>
                     <span class="nav-text">Catálogo de Productos</span>
@@ -45,12 +47,11 @@
                     <span class="nav-text">Configuración</span>
                 </a>
                 <div class="profile-item">
-                    <div class="profile-avatar">DH</div>
-                    <span class="profile-name">Diego Hernandez</span>
+                    <div class="profile-avatar" th:text="${nombre} != null ? ${nombre.substring(0, 2)} : 'US'"></div>
+                    <span class="profile-name" th:text="${nombre} ?: 'Usuario'"></span>
                 </div>
             </div>
         </aside>
-
         <main class="main-content">
             <header class="content-header">
                 <div class="header-icons">
@@ -64,17 +65,30 @@
             </header>
 
             <section class="welcome-section">
-                <h1>Bienvenido **Diego** <span class="emoji">🤝</span></h1>
+                <h1>Listado de clientes</h1>
 
-                <div class="center-logo-area">
-                    <div class="main-logo-container">
-                        <span class="main-logo-icon-placeholder"></span>
-                        <span class="main-logo-text">Camelot</span>
-                    </div>
-                    <p class="main-description">Seleccione alguna opción para comenzar</p>
-                </div>
             </section>
+
+
+            <div class="clientes-container">
+                <div class="buscador">
+                    <input type="text" id="buscar" placeholder="Buscar">
+                    <button onclick="buscar()"></button>
+                </div>
+
+                <div class="clientes-grid">
+                    <div th:each="cliente : ${clientes}" class="cliente-card">
+
+                        <h3 th:text="${cliente.name}">Nombre Cliente</h3>
+                        <p th:text="'Email: ' + ${cliente.email}">Email</p>
+                        <button id="Button" type="submit">
+                            <span id="Button_text" class="text">Agregar al carrito</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </body>
+
 </html>

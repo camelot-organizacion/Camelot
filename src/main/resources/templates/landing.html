@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,8 +51,8 @@
                     <span class="nav-text">Configuración</span>
                 </a>
                 <div class="profile-item">
-                    <div class="profile-avatar">DH</div>
-                    <span class="profile-name" th:text="${#authentication.name}"></span>
+                    <div class="profile-avatar" th:text="${nombre} != null ? ${nombre.substring(0, 2)} : 'US'"></div>
+                    <span class="profile-name" th:text="${nombre} ?: 'Usuario'"></span>
                 </div>
             </div>
         </aside>
@@ -70,7 +70,7 @@
             </header>
 
             <section class="welcome-section">
-                <h1>Bienvenido <span th:text="${#authentication.name}"> <span class="emoji">🤝 </span></h1>
+                <h1>Bienvenido <span th:text="${nombre} ?: 'Usuario'"></span> <span class="emoji">🤝</span></h1>
 
                 <div class="center-logo-area">
                     <div class="main-logo-container">
