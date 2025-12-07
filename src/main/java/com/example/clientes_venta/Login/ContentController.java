@@ -20,4 +20,10 @@ public class ContentController {
     public String landingPage(){
         return "landing";
     }
+
+    @GetMapping("/config")
+    public String config(){
+        return "config";
+    }
+
 }
