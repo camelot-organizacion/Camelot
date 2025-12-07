@@ -1,36 +1,30 @@
 package com.example.clientes_venta.Producto;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-
-@Component 
+@Service
 public class ProductoService {
 
-
-    private final ProductoRepo productoRepo;
-
     @Autowired
-    public ProductoService(ProductoRepo productoRepo){
-        this.productoRepo=productoRepo;
+    private ProductoRepository productoRepositorio;
+
+    public List<Producto> listarProductos() {
+        return productoRepositorio.findAll();
     }
 
-
-    public List<Producto> getProductos(){
-        return productoRepo.findAll();
+    public Optional<Producto> obtenerProductoPorId(Long id) {
+        return productoRepositorio.findById(id);
     }
 
-    public List<Producto> getProductoCategoria(String categoria){
-        return productoRepo.findAll().stream().filter(producto -> categoria.equals(producto.getCategoria()))
-        .collect(Collectors.toList());
+    public void guardarProducto(Producto producto) {
+        productoRepositorio.save(producto);
     }
 
-    public List<Producto> getProductoNombre(String name){
-        return productoRepo.findAll().stream().filter(producto -> name.equals(producto.getName()))
-        .collect(Collectors.toList());
+    public void eliminarProducto(Long id) {
+        productoRepositorio.deleteById(id);
     }
-
 }

@@ -184,6 +184,28 @@ body ::-webkit-scrollbar {
     color: #fff; /* Asegura que el icono también sea blanco */
 }
 
+/* =========================================
+   ACTIVE LINK con hover dinámico en sidebar
+   ========================================= */
+
+/* Enlace activo del sidebar (ej: "Catálogo de Productos") */
+.nav-link.active {
+    background-color: #1a1a38;      /* mismo fondo que los hover */
+    color: #ffffff;                 /* texto blanco */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Ícono del enlace activo también blanco */
+.nav-link.active i {
+    color: #ffffff;
+}
+
+/* Hover sobre el ACTIVO:
+   que cambie ligeramente el tono */
+.nav-link.active:hover {
+    background-color: #272754;      /* tono más claro en hover */
+    color: #ffffff;
+}
 
 .sidebar-footer {
     display: flex;
@@ -550,4 +572,535 @@ la cual tiene la barra de búsqueda a la derecha y el carrito más a la derecha.
 
 .producto-card #Button:hover {
     background-color: #3b33b0;
+}
+
+/* ====== Acciones en la cabecera de Productos ====== */
+.actions-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+/* Botones reutilizables */
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+    border: none;
+    border-radius: 999px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s, transform 0.1s;
+}
+
+/* Morado */
+.btn-primary {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+.btn-primary:hover {
+    background-color: #4338ca;
+}
+
+/* Gris (Actualizar / Cancelar) */
+.btn-secondary {
+    background-color: #e5e7eb;
+    color: #111827;
+}
+.btn-secondary:hover {
+    background-color: #d1d5db;
+}
+
+/* Rojo (Eliminar) */
+.btn-danger {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+/* Controles dentro de la card */
+.producto-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* Un poco de padding al grid de productos */
+.productos-container {
+    flex-grow: 1;
+    padding: 0 40px 40px;
+}
+
+/* ==================== Overrides específicos para la página de productos ==================== */
+
+.productos-page .welcome-section {
+    padding: 20px 40px 12px;   /* Menos padding arriba -> todo sube como ~1 cm */
+}
+
+/* Fila superior: título a la izquierda, botón + buscador a la derecha */
+.productos-page .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;     /* Alinea las bases del título y los controles */
+    margin-bottom: 8px;
+}
+
+/* Contenedor del botón morado y la barra de búsqueda */
+.productos-page .actions-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0;                 /* Sin márgenes extra para que quede arriba */
+}
+
+/* Barra de búsqueda alineada con el botón */
+.productos-page .buscador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Input de búsqueda con forma más "pill" tipo Figma */
+.productos-page .buscador input[type="text"] {
+    width: 280px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+/* Botón de lupa redondo pegado al input */
+.productos-page .buscador .search-btn,
+.productos-page .buscador button {
+    background-color: #4f46e5;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+}
+
+.productos-page .buscador .search-btn:hover,
+.productos-page .buscador button:hover {
+    background-color: #3b33b0;
+}
+
+/* Icono de la lupa en blanco */
+.productos-page .buscador .search-btn i,
+.productos-page .buscador button i {
+    color: #ffffff !important;
+}
+
+/* ==================== Página: Nuevo Producto ==================== */
+
+.nuevo-producto-page {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+}
+
+/* Header simple con logo + botón volver */
+.simple-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+.simple-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.simple-logo-icon {
+    width: 28px;
+    height: 34px;
+}
+
+.simple-logo-text {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: #080325;
+}
+
+.simple-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4f46e5;
+    text-decoration: none;
+}
+
+.simple-back-link i {
+    font-size: 13px;
+}
+
+/* Contenido principal */
+.nuevo-producto-main {
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px 48px;
+}
+
+.nuevo-producto-card {
+    width: 100%;
+    max-width: 960px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px 28px 32px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.nuevo-producto-card h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.nuevo-producto-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 24px;
+}
+
+/* Formulario */
+.nuevo-producto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Grid principal con campos */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    padding: 9px 12px;
+    font-size: 14px;
+    background-color: #f9fafb;
+    transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4f46e5;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.25);
+}
+
+.form-group small {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+/* Input con prefijo $ */
+.input-with-prefix {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+}
+
+.input-with-prefix .input-prefix {
+    padding: 0 10px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.input-with-prefix input {
+    border: none;
+    background: transparent;
+    padding: 9px 10px 9px 0;
+    width: 100%;
+}
+
+/* Fila para la imagen (URL + preview) */
+.form-image-row {
+    display: grid;
+    grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.5fr);
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.image-preview-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.image-preview-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.image-preview-box {
+    border-radius: 12px;
+    border: 1px dashed #d1d5db;
+    background-color: #f9fafb;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-preview-box span {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.image-preview-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: none; /* se muestra solo con JS */
+}
+
+/* Botones */
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-primary {
+    border: none;
+    border-radius: 999px;
+    padding: 10px 26px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #4f46e5;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.15s, transform 0.1s;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+}
+
+.btn-secondary-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    text-decoration: none;
+}
+
+.btn-secondary-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .nuevo-producto-card {
+        padding: 20px 16px 24px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-image-row {
+        grid-template-columns: 1fr;
+    }
+
+    .simple-header {
+        padding: 12px 16px;
+    }
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Card */
+.producto-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Imagen */
+.producto-card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f4f4f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.producto-card-image-placeholder {
+    font-size: 0.85rem;
+    color: #a1a1aa;
+}
+
+/* Texto */
+.producto-titulo {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.producto-precio {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2563eb;
+}
+
+/* Tags */
+.producto-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #3730a3;
+}
+
+.tag-secundaria {
+    background: #ecfeff;
+    color: #0f766e;
+}
+
+.tag-medida {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+/* Stock */
+.producto-stock {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.placeholder-box {
+    width: 150px;
+    height: 150px;
+    background: #f3f3f3;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    font-size: 14px;
+}
+
+/* Quitar el recuadro gris de "img producto" */
+.producto-card::before {
+    content: none !important;
+    display: none !important;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 24px;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+}
+
+.modal h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.modal p {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 16px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }

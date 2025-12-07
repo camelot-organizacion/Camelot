@@ -21,23 +21,31 @@
             </div>
 
             <nav class="main-nav">
-                <a href="/productos" class="nav-link">
+                <a href="/productos"
+                th:class="'nav-link' + (${paginaActual} == 'productos' ? ' active' : '')">
                     <i class="fas fa-box"></i>
                     <span class="nav-text">Catálogo de Productos</span>
                 </a>
-                <a href="/compras" class="nav-link">
+
+                <a href="/compras"
+                th:class="'nav-link' + (${paginaActual} == 'compras' ? ' active' : '')">
                     <i class="fas fa-dollar-sign"></i>
                     <span class="nav-text">Mis compras</span>
                 </a>
-                <a href="/ventas" class="nav-link">
-                    <i class="fas fa-dollar-sign"></i>
+
+                <a href="/ventas"
+                th:class="'nav-link' + (${paginaActual} == 'ventas' ? ' active' : '')">
+                    <i class="fas fa-bag-shopping"></i>
                     <span class="nav-text">Mis ventas</span>
                 </a>
-                <a href="/clientes" class="nav-link">
-                    <i class="fas fa-dollar-sign"></i>
+
+                <a href="/clientes"
+                th:class="'nav-link' + (${paginaActual} == 'clientes' ? ' active' : '')">
+                    <i class="fas fa-user"></i>
                     <span class="nav-text">Clientes</span>
                 </a>
             </nav>
+
 
 
             <div class="sidebar-footer">
