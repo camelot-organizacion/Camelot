@@ -373,3 +373,12 @@ body ::-webkit-scrollbar {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/inter/v20/UcCo3FwrK3iLTcviYwY.woff2) format("woff2");
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  height: auto;          /* que crezca si hay más contenido */
+  overflow-x: hidden;    /* no scroll horizontal feo */
+  overflow-y: auto;      /* scroll solo si hace falta */
+}

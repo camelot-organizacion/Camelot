@@ -6,40 +6,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
 
 @Controller
 @RequestMapping("/productos")
 public class ProductoControlador {
-    private final ProductoService productoService;
 
     @Autowired
-    public ProductoControlador(ProductoService productoService){
-        this.productoService = productoService;
+    private ProductoService productoService;
+
+    // LISTAR
+    @GetMapping
+    public String listarProductos(Model model) {
+        List<Producto> productos = productoService.listarProductos();
+        model.addAttribute("productos", productos);
+        return "productos";   // nombre de tu plantilla productos.html
     }
 
-    @GetMapping
-    public String productos(
-        @RequestParam(required=false) String name,
-        @RequestParam(required=false) String categoria,
-        Model model){
-        
-        List<Producto> productos;
-        
-        if(categoria != null) {
-            productos = productoService.getProductoCategoria(categoria);
-        }
-        else if(name != null){
-            productos = productoService.getProductoNombre(name);
-        }
-        else{
-            productos = productoService.getProductos();
-        }
-        
-        model.addAttribute("productos", productos);
-        return "productos";
+    // FORM NUEVO
+    @GetMapping("/nuevo")
+    public String mostrarFormularioNuevo(Model model) {
+        model.addAttribute("producto", new Producto());
+        model.addAttribute("esEdicion", false);
+        return "nuevo_producto";
     }
+
+    // FORM EDITAR
+    @GetMapping("/editar/{id}")
+    public String mostrarFormularioEditar(@PathVariable Long id, Model model) {
+        Producto producto = productoService.obtenerProductoPorId(id)
+                .orElseThrow(() -> new IllegalArgumentException("Id de producto inválido: " + id));
+
+        model.addAttribute("producto", producto);
+        model.addAttribute("esEdicion", true);
+        return "nuevo_producto";   // mismo HTML
+    }
+
+    // GUARDAR (crear + actualizar)
+    @PostMapping("/guardar")
+    public String guardarProducto(@ModelAttribute Producto producto) {
+        productoService.guardarProducto(producto);  // si tiene id, actualiza
+        return "redirect:/productos";
+    }
+
 }

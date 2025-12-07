@@ -1016,3 +1016,12 @@ body ::-webkit-scrollbar {
 #Table_Header_3 {
   border-radius: 12px !important;
 }
+
+/* Que el frame de Figma no sea una caja fija sin scroll */
+#Registro {
+  min-height: 100vh;
+  height: auto;          /* IMPORTANTÍSIMO: quita el alto fijo */
+  overflow: visible;     /* o auto, pero NO hidden */
+  /* Si ves que algo se rompe, puedes añadir un padding abajo */
+  padding-bottom: 2rem;
+}

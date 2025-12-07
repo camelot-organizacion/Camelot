@@ -26,4 +26,9 @@ public class ContentController {
         return "config";
     }
 
+    @GetMapping("/")
+    public String root() {
+        return "redirect:/home";
+    }
+
 }
