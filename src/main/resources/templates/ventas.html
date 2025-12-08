@@ -53,41 +53,73 @@
         </aside>
 
         <main class="main-content">
-            <header class="content-header">
-                <div class="header-icons">
-                    <i class="fas fa-tv"></i>
-                    <i class="fas fa-laptop-code"></i>
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <div class="help-icon">
-                    <i class="fas fa-question-circle"></i>
-                </div>
-            </header>
+    <header class="content-header">
+        <div class="header-icons">
+            <i class="fas fa-tv"></i>
+            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="help-icon">
+            <i class="fas fa-question-circle"></i>
+        </div>
+    </header>
 
-            <section class="welcome-section">
-                <h1>Tabla con ultimas ventas </h1>
-            </section>
+    <div class="page-header-container">
+        <h1 class="page-title">Ventas recientes</h1>
+        <div class="search-wrapper">
+            <input type="text" id="buscar" placeholder="Search">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
 
-            <div class="ventas-container">
-                <div class="buscador">
-                    <input type="text" id="buscar" placeholder="Buscar">
-                    <button onclick="buscar()"></button>
-                </div>
+    <div class="table-container">
+        <table class="camelot-table">
+            <thead>
+                <tr>
+                    <th>ID Orden</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Estatus</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="venta : ${ventas}">
+                    <td th:text="${venta.id}">#962296152</td>
+                    
+                    <td th:text="${venta.clienteNombre} ?: 'Cliente Desconocido'">Nombre Cliente</td>
+                    
+                    <td th:text="${venta.fecha}">08 Enero, 2025</td>
+                    
+                    <td th:text="${venta.estatus} ?: 'Completado'">Completado</td>
+                    
+                    <td class="price-cell">
+                        <span th:class="${venta.total >= 0} ? 'text-green' : 'text-red'" 
+                              th:text="${'$' + venta.total}">$217.90</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-                <div class="compras-grid">
-                    <div th:each="venta : ${ventas}" class="venta-card">
-
-                        <h3 th:text="${venta.id}">ID Venta</h3>
-                        <p th:text="'Cantidad: ' + ${venta.cantidad}">Cantidad</p>
-                        <p th:text="'Fecha: ' + ${venta.fecha}">Fecha</p>
-                        <button id="Button" type="submit">
-                            <span id="Button_text" class="text">Agregar al carrito</span>
-                        </button>
-                    </div>
-                </div>
+    <div class="table-footer">
+        <button class="btn-download">Download the Excel File</button>
+        
+        <div class="pagination-controls">
+            <span>Elementos por página</span>
+            <select class="page-select">
+                <option>10</option>
+            </select>
+            <span class="page-info">1 - 10 of 23</span>
+            <div class="page-arrows">
+                <i class="fas fa-angle-double-left"></i>
+                <i class="fas fa-angle-left"></i>
+                <i class="fas fa-angle-right"></i>
+                <i class="fas fa-angle-double-right"></i>
             </div>
-
-        </main>
+        </div>
+    </div>
+</main>
     </div>
 </body>
 </html>

@@ -551,3 +551,200 @@ la cual tiene la barra de búsqueda a la derecha y el carrito más a la derecha.
 .producto-card #Button:hover {
     background-color: #3b33b0;
 }
+
+
+/* ==========================================================================
+   NUEVOS ESTILOS: TABLA DE VENTAS (Estilo Figma Camelot)
+   ========================================================================== */
+
+/* --- Contenedor Superior (Título y Buscador) --- */
+.page-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 30px 0; /* Espacio arriba y abajo */
+    background-color: transparent;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827; /* Negro suave */
+    letter-spacing: -0.5px;
+}
+
+/* --- Buscador Estilo Cápsula --- */
+.search-wrapper {
+    position: relative;
+    width: 320px;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 12px 50px 12px 20px; /* Padding derecho extra para el botón */
+    border-radius: 50px; /* Bordes completamente redondos */
+    border: 1px solid #E5E7EB;
+    background-color: #fff;
+    font-size: 14px;
+    color: #374151;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-wrapper input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.search-wrapper .search-btn {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #4f46e5;
+    color: white;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-wrapper .search-btn:hover {
+    background-color: #3b33b0;
+}
+
+/* --- Contenedor de la Tabla --- */
+.table-container {
+    background-color: #fff;
+    border-radius: 8px;
+    /* Eliminamos sombras pesadas para un look más plano como en Figma */
+    overflow-x: auto; /* Para scroll horizontal en móviles */
+}
+
+.camelot-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+/* Cabecera de la Tabla */
+.camelot-table thead {
+    background-color: #F9FAFB; /* Gris muy claro */
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.camelot-table th {
+    text-align: left;
+    padding: 16px 24px;
+    font-weight: 600;
+    color: #111827;
+    text-transform: capitalize; /* ID Orden, Cliente, etc. */
+}
+
+/* Cuerpo de la Tabla */
+.camelot-table td {
+    padding: 20px 24px;
+    color: #4B5563; /* Gris texto */
+    border-bottom: 1px solid #F3F4F6;
+    vertical-align: middle;
+}
+
+/* Filas hover */
+.camelot-table tbody tr:hover {
+    background-color: #FAFAFA;
+}
+
+/* --- Estilos Específicos de Columnas --- */
+
+/* Columna de Precios (Alineada a la derecha opcional, o colores) */
+.price-cell {
+    font-family: 'Inter', sans-serif; /* Asegurar fuente numérica tabular si es posible */
+    font-weight: 500;
+    text-align: right; /* En figma los precios suelen alinearse a la derecha */
+}
+
+/* Alineamos el header de precio también si la celda está a la derecha */
+.camelot-table th:last-child {
+    text-align: right;
+}
+
+.text-green {
+    color: #10B981;
+}
+
+.text-red {
+    color: #EF4444;
+}
+
+/* --- Footer de la Tabla (Botón y Paginación) --- */
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    margin-top: 10px;
+    border-top: 1px solid transparent;
+}
+
+/* Botón Descargar */
+.btn-download {
+    background-color: #4f46e5;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px; /* Pill shape */
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+    transition: transform 0.1s;
+}
+
+.btn-download:hover {
+    background-color: #3b33b0;
+    transform: translateY(-1px);
+}
+
+/* Paginación */
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.page-select {
+    padding: 6px 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #374151;
+    cursor: pointer;
+}
+
+.page-info {
+    font-variant-numeric: tabular-nums;
+}
+
+.page-arrows {
+    display: flex;
+    gap: 8px;
+}
+
+.page-arrows i {
+    font-size: 16px;
+    color: #9CA3AF;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 4px;
+}
+
+.page-arrows i:hover {
+    color: #4f46e5;
+}
