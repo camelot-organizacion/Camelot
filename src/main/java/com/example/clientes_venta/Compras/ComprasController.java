@@ -17,13 +17,16 @@ public class ComprasController {
         this.comprasService = comprasService;
     }
 
-
     @GetMapping
-    public String listaCompras(Model model){
-        
+    public String listaCompras(Model model) {
+
         List<Compras> compras = comprasService.listaCompras();
 
         model.addAttribute("listaCompras", compras);
-        return "compras";
+
+        // ⭐⭐ ESTO ACTIVA EL BOTÓN "Mis compras" EN EL SIDEBAR
+        model.addAttribute("paginaActual", "compras");
+
+        return "compras"; // debe coincidir con compras.html
     }
 }

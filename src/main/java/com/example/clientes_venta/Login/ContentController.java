@@ -20,4 +20,14 @@ public class ContentController {
     public String landingPage(){
         return "landing";
     }
+
+    @GetMapping("/")
+    public String root() {
+        return "redirect:/home";
+    }
+    @GetMapping("/config")
+    public String config(){
+        return "config";
+    }
+
 }

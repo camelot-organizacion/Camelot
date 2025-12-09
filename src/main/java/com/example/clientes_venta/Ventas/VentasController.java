@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.security.core.Authentication;
 
 @Controller
 @RequestMapping("/ventas")
@@ -20,23 +21,31 @@ public class VentasController {
 
     private final VentasService ventasService;
 
-    @Autowired // Agregamos Autowired para que Spring inyecte el servicio correctamente
+    @Autowired
     public VentasController(VentasService ventasService){
         this.ventasService = ventasService;
     }
 
     @GetMapping
-    public String listarVentas(Model model){
+    public String listarVentas(Model model, Authentication auth){
         
-        // Usamos getAllVentas() para traer la lista desde el servicio
+        // 1. TU CÓDIGO: Traemos la lista usando tu método getAllVentas()
         List<Ventas> ventas = ventasService.getAllVentas();
-
-        // Enviamos la lista al HTML con el nombre "ventas"
         model.addAttribute("ventas", ventas);
 
-        return "ventas"; // Busca ventas.html
-    }   
+        // 2. CÓDIGO DEL MASTER: Agregamos lógica para el sidebar y usuario
+        // Esto ayuda a que se ilumine la opción "Ventas" en el menú
+        model.addAttribute("paginaActual", "ventas");
 
+        // Esto pone el nombre del usuario real en la esquina
+        if (auth != null) {
+            model.addAttribute("nombre", auth.getName());
+        }
+
+        return "ventas";
+    }    
+
+    // 3. TU CÓDIGO: Mantenemos la función de Excel que creaste
     @GetMapping("/exportar-excel")
     public ResponseEntity<InputStreamResource> exportarExcel() throws IOException {
         ByteArrayInputStream in = ventasService.generarExcel();

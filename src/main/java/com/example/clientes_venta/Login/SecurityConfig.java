@@ -1,6 +1,5 @@
 package com.example.clientes_venta.Login;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -14,48 +13,70 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import com.example.clientes_venta.Usuario.UsuarioService;
 
-import lombok.AllArgsConstructor;
-
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
-@AllArgsConstructor
-public class SecurityConfig{
+@RequiredArgsConstructor
+public class SecurityConfig {
 
-    @Autowired
+    // Inyectamos tu servicio que implementa UserDetailsService
     private final UsuarioService usuarioService;
 
     @Bean
-    public UserDetailsService UserDetailsService(){
+    public UserDetailsService userDetailsService() {
         return usuarioService;
     }
 
-    @Bean 
-    public AuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(usuarioService);
-        provider.setPasswordEncoder(PasswordEncoder());
-        return provider;
-    }
-
     @Bean
-    public PasswordEncoder PasswordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity)throws Exception{
-        return httpSecurity
-            .csrf(csrf -> csrf.ignoringRequestMatchers("/req/signup"))
-            .formLogin(httpForm -> {
-                httpForm.loginPage("/login").permitAll();
-                httpForm.defaultSuccessUrl("/home");
-            })
-            .authorizeHttpRequests(registry -> {
-                registry.requestMatchers("/req/signup").permitAll();
-                registry.requestMatchers("/static/**", "/css/**", "/js/**").permitAll();
-                registry.anyRequest().authenticated();
-            })
-            .build();
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService());
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
+    }
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            // CSRF: permitimos el signup sin token
+            .csrf(csrf -> csrf
+                .ignoringRequestMatchers("/req/signup")
+            )
+            .authenticationProvider(authenticationProvider())
+            .authorizeHttpRequests(auth -> auth
+                // Rutas públicas
+                .requestMatchers(
+                        "/login",
+                        "/req/signup",
+                        "/error",
+                        "/css/**",
+                        "/js/**",
+                        "/images/**",
+                        "/static/**"
+                ).permitAll()
+                // Todo lo demás requiere estar autenticado
+                .anyRequest().authenticated()
+            )
+            .formLogin(form -> form
+                .loginPage("/login")              // tu página de login (GET)
+                .loginProcessingUrl("/login")     // endpoint del form (POST)
+                // 👇 SIEMPRE redirige a /home después de login, ignore URL previa
+                .defaultSuccessUrl("/home", true)
+                .failureUrl("/login?error=true")
+                .permitAll()
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+            );
+
+        return http.build();
     }
 }
