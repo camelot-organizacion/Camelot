@@ -69,7 +69,6 @@ public class DataLoader implements CommandLineRunner {
             );
 
             ventasRepo.saveAll(datosFigma);
-            System.out.println("✅ DATOS DE PRUEBA CARGADOS EXITOSAMENTE (USANDO LOMBOK BUILDER)");
         }
     }
 }

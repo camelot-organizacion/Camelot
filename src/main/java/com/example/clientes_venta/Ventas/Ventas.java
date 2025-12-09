@@ -16,8 +16,16 @@ import java.time.LocalDate;
 public class Ventas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Agregado para que el ID sea automático (1, 2, 3...)
-    private Long id; // Cambiado de Integer a Long (estándar en JPA)
+    @SequenceGenerator(
+            name = "ventas_id_seq",
+            sequenceName = "ventas_id_seq",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "ventas_id_seq"
+    )
+    private Integer id;
 
     @Column(name = "cliente_nombre")
     private String clienteNombre; // Antes "cantidad". Ahora es el nombre del cliente.
