@@ -42,4 +42,15 @@ public class ProductoControlador {
         model.addAttribute("productos", productos);
         return "productos";
     }
+
+    // Este método muestra el formulario cuando entras a /productos/nuevo
+    @GetMapping("/nuevo")
+    public String mostrarFormularioDeCrear(Model model) {
+        // Creamos un objeto vacío para rellenar
+        Producto producto = new Producto(); 
+        model.addAttribute("producto", producto);
+        
+        // Retornamos el nombre del archivo HTML que creamos en el Paso 1
+        return "crear_producto"; 
+    }
 }

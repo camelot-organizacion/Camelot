@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Producto - Camelot</title>
+    <link rel="stylesheet" th:href="@{/css/landing.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo"><span class="logo-text">Camelot</span></div>
+            </div>
+            <nav class="main-nav">
+                <a href="/productos" class="nav-link"><i class="fas fa-arrow-left"></i> <span class="nav-text">Volver al catálogo</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section class="welcome-section">
+                <h1>Registrar Nuevo Producto</h1>
+            </section>
+
+            <div class="productos-container" style="padding: 20px;">
+                <form th:action="@{/productos/guardar}" th:object="${producto}" method="post" style="max-width: 500px;">
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label>Nombre del Producto:</label>
+                        <input type="text" th:field="*{name}" class="form-control" required style="width: 100%; padding: 8px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label>Categoría:</label>
+                        <input type="text" th:field="*{categoria}" class="form-control" required style="width: 100%; padding: 8px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label>Precio:</label>
+                        <input type="number" step="0.01" th:field="*{precio}" class="form-control" required style="width: 100%; padding: 8px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label>Stock Inicial:</label>
+                        <input type="number" th:field="*{stock}" class="form-control" required style="width: 100%; padding: 8px;">
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="margin-top: 10px;">Guardar Producto</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

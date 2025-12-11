@@ -41,10 +41,10 @@
 
 
             <div class="sidebar-footer">
-                <a href="#" class="nav-link config-link active">
-                    <i class="fas fa-cog"></i>
-                    <span class="nav-text">Configuración</span>
-                </a>
+                <a href="/perfil" class="nav-link config-link active">
+                <i class="fas fa-cog"></i>
+                <span class="nav-text">Configuración</span>
+            </a>
                 <div class="profile-item">
                     <div class="profile-avatar" th:text="${nombre} != null ? ${nombre.substring(0, 2)} : 'US'"></div>
                     <span class="profile-name" th:text="${nombre} ?: 'Usuario'"></span>
@@ -65,8 +65,25 @@
             </header>
 
             <section class="welcome-section">
-                <h1>Catálogo de Productos</h1>
-            </section>
+    <div class="top-row">
+        <div class="welcome-header">
+            <h1>Catálogo de Productos</h1> </div>
+
+        <div class="actions-row">
+            <a th:href="@{/productos/nuevo}" class="btn-primary" 
+               style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                Agregar producto
+            </a>
+
+            <div class="buscador">
+                <input type="text" id="buscar" placeholder="Buscar por nombre">
+                <button class="search-btn" type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+</section>
 
             <div class="productos-container">
                 <div class="buscador">

@@ -341,11 +341,12 @@ body ::-webkit-scrollbar {
   width: 1440px;
   min-width: 1440px;
   max-width: 1440px;
-  min-height: 400px;
-  max-height: 958px;
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+  padding-bottom: 50px;
   margin: 0 auto;
-  position: relative;
-  overflow: hidden
+  position: relative
 }
 
 #Header {
