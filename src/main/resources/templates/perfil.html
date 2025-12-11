@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camelot - Mi Perfil</title>
+    <link rel="stylesheet" th:href="@{/css/landing.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .perfil-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .perfil-container h2 {
+            color: #080325;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .perfil-info p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .config-button {
+            background-color: #4f46e5;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .config-button:hover {
+            background-color: #3f36c4;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div id="Camelot_Logo">
+                    <span id="Camelot_Text"><span id="__0" class="text">Camelot</span></span>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="main-nav">
+                <a href="/productos" class="nav-link"><i class="fas fa-box"></i><span class="nav-text">Catálogo de Productos</span></a>
+                <a href="/compras" class="nav-link"><i class="fas fa-dollar-sign"></i><span class="nav-text">Mis compras</span></a>
+                <a href="/ventas" class="nav-link"><i class="fas fa-bag-shopping"></i><span class="nav-text">Mis ventas</span></a>
+                <a href="/clientes" class="nav-link"><i class="fas fa-user"></i><span class="nav-text">Clientes</span></a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="/perfil" class="nav-link config-link active">
+                    <i class="fas fa-cog"></i>
+                    <span class="nav-text">Configuración</span>
+                </a>
+                <div class="profile-item">
+                    <div class="profile-avatar" th:text="${nombre} != null ? ${nombre.substring(0, 2)} : 'US'"></div>
+                    <span class="profile-name" th:text="${nombre} ?: 'Usuario'"></span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-icons">
+                    <i class="fas fa-tv"></i><i class="fas fa-laptop-code"></i><i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="help-icon"><i class="fas fa-question-circle"></i></div>
+            </header>
+
+            <section class="welcome-section">
+                <h1>Mi Cuenta y Perfil</h1>
+
+                <div class="perfil-container">
+                    <h2>Datos Personales</h2>
+                    
+                    <div th:if="${usuarioActual}">
+                        <div class="perfil-info">
+                            <p><strong>ID de Usuario:</strong> <span th:text="${usuarioActual.id}"></span></p>
+                            <p><strong>Nombre Completo:</strong> <span th:text="${usuarioActual.name}"></span></p>
+                            <p><strong>Email (Usuario):</strong> <span th:text="${usuarioActual.email}"></span></p>
+                            <p><strong>Rol Asignado:</strong> <span th:text="${usuarioActual.rol}"></span></p>
+                        </div>
+                        
+                        <button class="config-button">Editar Perfil</button>
+                        <button class="config-button">Cambiar Contraseña</button>
+                    </div>
+
+                    <div th:unless="${usuarioActual}">
+                        <p th:text="${error} ?: 'No se pudieron cargar los datos del usuario.'"></p>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
