@@ -1,40 +1,32 @@
 package com.example.clientes_venta.Compras;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDate;
+
 
 @Data
-@Entity
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Entity
 @Table(name="compras")
 public class Compras {
 
     @Id
-    @SequenceGenerator(
-            name = "compras_id_seq",
-            sequenceName = "compras_id_seq",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "compras_id_seq"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // CAMBIOS AQUI:
-    private String producto;  // Ej: "Paquete Hamburguesa"
-    
-    private Integer cantidad; // Ej: 2
+    private String nombreProducto;
 
-    private String estatus;   // Ej: "Entregado"
+    private Integer cantidad;
 
-    private Double total;     // El precio total de la compra
+    private String fecha;
 
-    private LocalDate fecha;  
 }
